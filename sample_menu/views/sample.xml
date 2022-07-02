@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <record id="sample_view" model="ir.ui.view">
+        <field name="name">Sample_view_list</field>
+        <field name="model">sample.model</field>
+            <field name="arch" type="xml">
+                <tree string="Sample_list">
+                    <field name="name" />
+                    <field name="phone" />
+                    <field name="address" />
+                </tree>
+            </field>
+    </record>
+
+    <record id="sample_model_view_form" model="ir.ui.view">
+        <field name="name">sample.model.view.form</field>
+        <field name="model">sample.model</field>
+        <field name="arch" type="xml">
+            <form string="Bio Data">
+                <sheet>
+                    <group string="Bio">
+                        <field name="name" />
+                        <field name="phone" />
+                        <field name="address" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sample_model_action_window">
+        <field name="name">sample_model_window</field>
+        <field name="res_model">sample.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="bio_ino" id="sample_menu_bio" parent="sample_menu" action="sample_model_action_window" />
+  
+</data>
+</odoo>

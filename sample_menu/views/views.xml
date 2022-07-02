@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="sample_menu.list">
+      <field name="name">sample_menu_list</field>
+      <field name="model">sample_menu.sample_menu</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" placeholder="User Name" />
+          <field name="value" placeholder="Mark1" />
+          <field name="value2" placeholder="Mark2" />
+          <field name="date_of_birth" placeholder="Date of Birth" />
+          <field name="description" placeholder="Description" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="sample_menu.form">
+      <field name="name">sample_menu_form</field>
+      <field name="model">sample_menu.sample_menu</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="bio_data" string="Bio Data">
+              <field name="name" placeholder="User Name" />
+              <field name="value" placeholder="Mark1" />
+              <field name="value2" placeholder="Mark2" />
+              <field name="date_of_birth" placeholder="Date of Birth" />
+              <field name="description" placeholder="Description" />
+            </group>
+            <notebook>
+              <page name="sample_page" string="Sample">
+
+              </page>
+              <page name="sample_page_2" string="Sample2"></page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="sample_menu.action_window">
+      <field name="name">sample_menu window</field>
+      <field name="res_model">sample_menu.sample_menu</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="sample_testing" id="sample_menu" action="sample_menu.action_window" />
+    <menuitem name="home" id="sample_menu_home" parent="sample_menu" action="sample_menu.action_window" />
+ </data>
+</odoo>
